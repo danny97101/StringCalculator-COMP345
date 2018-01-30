@@ -75,6 +75,23 @@ class StringCalculatorTest {
         //negative negative
         sum = calc.add("-2,-34");
         assertEquals(-36, sum, "Expected: -36 Actual:" + sum);
+    }
+
+    @Test
+    void testAddN() {
+        StringCalculator calc = new StringCalculatorImpl();
+
+        //all positive
+        int sum = calc.add("1,2,3,4");
+        assertEquals(10, sum, "Expected: 10 Actual: " + sum);
+
+        //all negative
+        sum = calc.add("-1,-2,-3,-4,-5");
+        assertEquals(-15, sum, "Expected: -10 Actual: " + sum);
+
+        //mix
+        sum = calc.add("-1,2,3,-4");
+        assertEquals(0, sum, "Expected: 00 Actual: " + sum);
 
     }
 }
