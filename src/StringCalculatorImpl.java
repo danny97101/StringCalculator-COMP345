@@ -6,13 +6,15 @@ public class StringCalculatorImpl implements StringCalculator {
             return 0;
 
         String delimiter = ",";
-        if (!numbers.contains(delimiter)) {
+        if (!numbers.contains(delimiter) && !numbers.contains("\n")) {
             return Integer.parseInt(numbers);
         } else {
             int sum = 0;
             String nums[] = numbers.split(delimiter);
-            for (String num : nums) {
-                sum += Integer.parseInt(num);
+            for (String numsWithNewLine : nums) {
+                String newNums[] = numsWithNewLine.split("\n");
+                for (String num : newNums)
+                    sum += Integer.parseInt(num);
             }
             return sum;
         }
