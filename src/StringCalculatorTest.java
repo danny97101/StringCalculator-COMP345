@@ -65,7 +65,7 @@ class StringCalculatorTest {
         assertEquals(-2, sum, "Expected: -2 Actual: " + sum);
 
         //negative postiive
-        sum = calc.add("-5, 23");
+        sum = calc.add("-5,23");
         assertEquals(18, sum, "Expected: 18 Actual: " + sum);
 
         //negative zero
