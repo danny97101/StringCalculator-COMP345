@@ -5,6 +5,11 @@ public class StringCalculatorImpl implements StringCalculator {
         if (numbers.equals(""))
             return 0;
 
+        String delimiter = ",";
+        if (!numbers.contains(delimiter)) {
+            return Integer.parseInt(numbers);
+        }
+
         return -1;
     }
 }

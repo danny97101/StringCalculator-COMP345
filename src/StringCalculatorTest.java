@@ -31,5 +31,8 @@ class StringCalculatorTest {
         //multiple digits
         sum = calc.add("123");
         assertEquals(123, sum, "Expected: 123 Actual: " + sum);
+
+        //bad format
+        assertThrows(NumberFormatException.class, () -> calc.add("m"));
     }
 }
