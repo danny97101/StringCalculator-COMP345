@@ -139,4 +139,9 @@ class StringCalculatorTest {
         sum = calc.add("-1, 3, -5");
         assertEquals(-3, sum, "Expected: -3 Actual:" + sum);
     }
+    @Test
+    void testBadInput(){
+        StringCalculator calc = new StringCalculatorImpl();
+        // This needs to be written!
+    }
 }
