@@ -76,7 +76,7 @@ class StringCalculatorTest {
         sum = calc.add("0\n-2");
         assertEquals(-2, sum, "Expected: -2 Actual: " + sum);
 
-        //negative postiive
+        //negative positive
         sum = calc.add("-5,23");
         assertEquals(18, sum, "Expected: 18 Actual: " + sum);
         sum = calc.add("-5\n23");
@@ -125,15 +125,27 @@ class StringCalculatorTest {
         sum = calc.add("-1,2,3,-4");
         assertEquals(0, sum, "Expected: 00 Actual: " + sum);
     }
+    // test negative numbers
     @Test
-    void testAddNegative(){
+    void testAddNegative() {
         StringCalculator calc = new StringCalculatorImpl();
-        // test negative numbers
+        // test two negative numbers
         int sum = calc.add("-1, -5");
         assertEquals(-6, sum, "Expected: -6 Actual:" + sum);
+        // test three negative numbers
         sum = calc.add("-1, -3, -5");
         assertEquals(-9, sum, "Expected: -9 Actual:" + sum);
+        // test two negative numbers and one positive number
         sum = calc.add("-1, 3, -5");
         assertEquals(-3, sum, "Expected: -3 Actual:" + sum);
+    }
+    @Test
+    void testBadInput() {
+      // This needs to be written!
+        StringCalculator calc = new StringCalculatorImpl();
+
+        assertThrows(NumberFormatException.class, () -> calc.add("1,"));
+        assertThrows(NumberFormatException.class, () -> calc.add("1,\n2"));
+        assertThrows(NumberFormatException.class, () -> calc.add("1,2\n"));
     }
 }
