@@ -148,4 +148,15 @@ class StringCalculatorTest {
         assertThrows(NumberFormatException.class, () -> calc.add("1,\n2"));
         assertThrows(NumberFormatException.class, () -> calc.add("1,2\n"));
     }
+    @Test
+    void testDelimiter(){
+        String testString = "//;\n1;2;";
+        assertEquals(3, calc.add(testString), "Error: Delimiters failed!");
+        testString = "//b\n5b8b3";
+        assertEquals(16, calc.add(testString), "Error: Delimiters failed!");
+        testString = "// \n5 8 11";
+        assertEquals(24, calc.add(testString), "Error: Delimiters failed!");
+        testString = "//,\n6,8,3";
+        assertEquals(17, calc.add(testString), "Error: Delimiters failed!");
+    }
 }
