@@ -130,13 +130,13 @@ class StringCalculatorTest {
     void testAddNegative() {
         StringCalculator calc = new StringCalculatorImpl();
         // test two negative numbers
-        int sum = calc.add("-1, -5");
+        int sum = calc.add("-1,-5");
         assertEquals(-6, sum, "Expected: -6 Actual:" + sum);
         // test three negative numbers
-        sum = calc.add("-1, -3, -5");
+        sum = calc.add("-1,-3,-5");
         assertEquals(-9, sum, "Expected: -9 Actual:" + sum);
         // test two negative numbers and one positive number
-        sum = calc.add("-1, 3, -5");
+        sum = calc.add("-1,3,-5");
         assertEquals(-3, sum, "Expected: -3 Actual:" + sum);
     }
     @Test
@@ -150,7 +150,8 @@ class StringCalculatorTest {
     }
     @Test
     void testDelimiter(){
-        String testString = "//;\n1;2;";
+        String testString = "//;\n1;2";
+        StringCalculator calc = new StringCalculatorImpl();
         assertEquals(3, calc.add(testString), "Error: Delimiters failed!");
         testString = "//b\n5b8b3";
         assertEquals(16, calc.add(testString), "Error: Delimiters failed!");
