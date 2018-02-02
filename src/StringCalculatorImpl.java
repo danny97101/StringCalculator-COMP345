@@ -6,6 +6,11 @@ public class StringCalculatorImpl implements StringCalculator {
             return 0;
 
         String delimiter = ",";
+
+        if (numbers.startsWith("//")) {
+            delimiter = numbers.substring(2, numbers.indexOf("\n"));
+        }
+
         if (!numbers.contains(delimiter) && !numbers.contains("\n")) {
             return Integer.parseInt(numbers);
         } else {
